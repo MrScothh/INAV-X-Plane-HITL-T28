@@ -1,0 +1,10 @@
+plugin/build/
+plugin/src/*.vcxproj.user
+plugin/src/x64/
+plugin/src/.vs/
+__pycache__/
+*.pyc
+tools/tmp/
+tools/*.txt
+aircraft/T28_RC_1200/*_prefs.txt
+*.blend1

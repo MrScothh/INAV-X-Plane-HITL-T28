@@ -1,0 +1,7 @@
+* text=auto
+*.acf -text
+*.obj -text
+*.png binary
+*.xpl binary
+*.wav binary
+*.lib binary

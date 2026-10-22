@@ -1,0 +1,28 @@
+name: plugin
+
+on:
+  push:
+    paths: ["plugin/**", ".github/workflows/plugin.yml"]
+  pull_request:
+    paths: ["plugin/**"]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: mingw-w64-ucrt-x86_64-gcc
+      - name: Build win.xpl
+        run: bash plugin/build_win.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: win.xpl
+          path: plugin/build/win.xpl
